@@ -1,0 +1,62 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    width: 305px;
+    height: 100px;
+    border: 5px solid black;
+    border-radius: 50px;
+    position: relative;
+}
+
+.on{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 46px;
+    position: absolute;
+    bottom: -24px;
+    left:16%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.box::after{
+    content: "";
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 1px solid black;
+    position: absolute;
+    left: 1px;
+    bottom: 9px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVEcUX7HTmXyQnRrM4nBGLUSAWmKX5uCUuiw&usqp=CAU");
+    background-size: cover;
+    transition: 1s;
+}
+
+input{
+    display: none;
+}
+
+input:checked + .box::after{
+    left: calc(100% - 83px);
+    background-image: url("https://www.freeiconspng.com/thumbs/crescent-moon-png/black-crescent-moon-png-2.png");
+    background-size: cover;
+
+}
+
+input:checked + .box{
+    background-color: rgb(187, 184, 184);
+}
+.on + .on {
+    right: 0;
+    left: initial;
+    display: block;
+}
+input:checked + .box > .on{
+    display: block;
+}
+input:checked + .box > .on + .on {
+    display: none;
+}
